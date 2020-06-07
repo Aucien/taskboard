@@ -18,6 +18,7 @@ app.get('/tasks/:id', (req, res) => {
 });
 
 app.post('/createTask', (req, res) => {
+  console.log(req.body);
   const newTask = {
     id: tasks.length,
     title: req.body.title,
@@ -28,13 +29,8 @@ app.post('/createTask', (req, res) => {
   res.send('Added New Task');
 });
 
-app.get('/deleteTask', (req, res) => {
-  var index = tasks.length;
-  while (index--) {
-    if (tasks[index] && tasks[index]['title'] === req.body.title) {
-      tasks.splice(index, 1);
-    }
-  }
+app.post('/deleteTask', (req, res) => {
+  tasks.splice(req.body.taskID, 1);
   res.send('Deleted Task');
 });
 
