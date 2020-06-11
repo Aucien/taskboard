@@ -18,7 +18,6 @@ app.get('/tasks/:id', (req, res) => {
 });
 
 app.post('/createTask', (req, res) => {
-  console.log(req.body);
   const newTask = {
     id: tasks.length,
     title: req.body.title,
@@ -32,6 +31,16 @@ app.post('/createTask', (req, res) => {
 app.post('/deleteTask', (req, res) => {
   tasks.splice(req.body.taskID, 1);
   res.send('Deleted Task');
+});
+
+app.post('/update', (req, res) => {
+  const updatedTask = {
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status,
+  };
+  tasks[req.body.taskID] = updatedTask;
+  res.send('updated task');
 });
 
 app.listen(5000, () => console.log(`Server started on port 5000`));
