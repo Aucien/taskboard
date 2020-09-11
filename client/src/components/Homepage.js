@@ -25,7 +25,7 @@ class Homepage extends Component {
         {this.state.tasks.map((info, index) => {
           return (
             <div>
-              <Link to={`/task/${info.id}`}> {info.title}</Link>
+              <Link to={`/task/${index}`}> {info.title}</Link>
               <p>status: {info.status}</p>
             </div>
           );

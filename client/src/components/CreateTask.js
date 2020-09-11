@@ -49,7 +49,7 @@ class CreateTask extends Component {
             onChange={this.handleInputChange}
           />
           <br />
-          <button>submit</button>
+          <button>Submit</button>
         </form>
       </div>
     );

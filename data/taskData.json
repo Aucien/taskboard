@@ -1,20 +1,17 @@
 [
   {
-    "id": 0,
     "title": "Create Taskboard",
     "description": "Follow these steps",
     "status": "in progress"
   },
   {
-    "id": 1,
     "title": "Learn React",
     "description": "practice with projects",
     "status": "in progress"
   },
   {
-    "id": 2,
     "title": "Learn Game development",
     "description": "Make a basic game",
-    "status": "to do"
+    "status": "todo"
   }
 ]

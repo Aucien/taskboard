@@ -28,14 +28,19 @@ app.post('/createTask', (req, res) => {
   res.send('Added New Task');
 });
 
-app.get('/deleteTask', (req, res) => {
-  var index = tasks.length;
-  while (index--) {
-    if (tasks[index] && tasks[index]['title'] === req.body.title) {
-      tasks.splice(index, 1);
-    }
-  }
+app.post('/deleteTask', (req, res) => {
+  tasks.splice(req.body.taskID, 1);
   res.send('Deleted Task');
+});
+
+app.post('/update', (req, res) => {
+  const updatedTask = {
+    title: req.body.title,
+    description: req.body.description,
+    status: req.body.status,
+  };
+  tasks[req.body.taskID] = updatedTask;
+  res.send('updated task');
 });
 
 app.listen(5000, () => console.log(`Server started on port 5000`));
